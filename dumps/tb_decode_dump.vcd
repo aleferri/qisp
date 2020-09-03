@@ -1,0 +1,155 @@
+$date
+	Sat Oct  5 12:58:29 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_decode $end
+$var wire 16 ! op_add_ri [15:0] $end
+$var wire 16 " op_goto_r0 [15:0] $end
+$var wire 16 # op_ldu [15:0] $end
+$var wire 16 $ op_sub_rr [15:0] $end
+$var wire 1 % ra_is_front $end
+$var wire 1 & rb_is_front $end
+$var wire 4 ' sel_rd [3:0] $end
+$var wire 4 ( sel_rb [3:0] $end
+$var wire 4 ) sel_ra [3:0] $end
+$var wire 2 * sel_d [1:0] $end
+$var wire 1 + sel_b $end
+$var wire 3 , sel_alu [2:0] $end
+$var wire 2 - sel_a [1:0] $end
+$var wire 1 . rd_is_front $end
+$var wire 1 / op_type $end
+$var wire 1 0 is_stop $end
+$var reg 1 1 clk $end
+$var reg 16 2 i_reg [15:0] $end
+$upscope $end
+$scope module tb_decode $end
+$scope module id_module $end
+$var wire 16 3 i_reg [15:0] $end
+$var wire 1 4 is_alu_i_r $end
+$var wire 1 5 is_alu_r_f $end
+$var wire 1 6 is_alu_r_r $end
+$var wire 1 7 is_alu_ri_f $end
+$var wire 1 8 is_alu_rr_f $end
+$var wire 1 9 is_family_spec_op $end
+$var wire 1 : is_jump_i $end
+$var wire 1 ; is_jump_r $end
+$var wire 1 < is_ld $end
+$var wire 1 = is_ld_mem $end
+$var wire 1 > is_st_mem $end
+$var wire 1 0 is_stop $end
+$var wire 1 ? maybe_movi $end
+$var wire 1 @ maybe_movr $end
+$var wire 1 / op_type $end
+$var wire 1 % ra_is_front $end
+$var wire 1 & rb_is_front $end
+$var wire 1 . rd_is_front $end
+$var wire 1 + sel_b $end
+$var wire 4 A sel_rd [3:0] $end
+$var wire 4 B sel_rb [3:0] $end
+$var wire 4 C sel_ra [3:0] $end
+$var wire 2 D sel_d [1:0] $end
+$var wire 3 E sel_alu [2:0] $end
+$var wire 2 F sel_a [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 F
+b0 E
+b10 D
+b0 C
+b0 B
+b0 A
+0@
+0?
+0>
+0=
+0<
+1;
+0:
+19
+08
+07
+06
+05
+04
+b10000 3
+b10000 2
+01
+00
+0/
+0.
+b0 -
+b0 ,
+0+
+b10 *
+b0 )
+b0 (
+b0 '
+0&
+0%
+b10010010011 $
+b10001001000000 #
+b10000 "
+b1000000110010000 !
+$end
+#2
+11
+#4
+01
+1.
+b0 *
+b0 D
+b1 ,
+b1 E
+0;
+18
+b11 '
+b11 A
+b100 )
+b100 C
+b11 (
+b11 B
+b10010010011 2
+b10010010011 3
+#6
+11
+#8
+01
+b0 ,
+b0 E
+08
+09
+17
+b0 '
+b0 A
+b1 )
+b1 C
+b0 (
+b0 B
+b1000000110010000 2
+b1000000110010000 3
+#10
+11
+#12
+01
+b11 -
+b11 F
+1<
+b0 ,
+b0 E
+07
+b10 )
+b10 C
+b10001001000000 2
+b10001001000000 3
+#14
+11
+#16
+01

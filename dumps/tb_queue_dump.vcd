@@ -1,0 +1,177 @@
+$date
+	Wed Oct  9 02:37:32 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_queue $end
+$var wire 4 ! q_val [3:0] $end
+$var wire 1 " o_rbw $end
+$var reg 1 # clk $end
+$var reg 1 $ hold $end
+$var reg 4 % i_qp [3:0] $end
+$var reg 1 & i_rbw $end
+$var reg 1 ' q_dir $end
+$var reg 1 ( r_ts $end
+$var reg 1 ) rs $end
+$var reg 1 * w_ts $end
+$var reg 1 + ws $end
+$scope module queue $end
+$var wire 1 , allow_ptr $end
+$var wire 1 # clk $end
+$var wire 1 $ hold $end
+$var wire 4 - i_qp [3:0] $end
+$var wire 1 & i_rbw $end
+$var wire 4 . o_qp [3:0] $end
+$var wire 1 " o_rbw $end
+$var wire 1 ' q_dir $end
+$var wire 1 ( r_ts $end
+$var wire 1 ) rs $end
+$var wire 1 * w_ts $end
+$var wire 1 + ws $end
+$var wire 4 / selected [3:0] $end
+$var wire 4 0 qp_1_ptr [3:0] $end
+$var wire 4 1 qp_0_ptr [3:0] $end
+$var reg 4 2 qp_0 [3:0] $end
+$var reg 4 3 qp_1 [3:0] $end
+$var reg 1 4 rbw_hazard $end
+$var reg 1 5 rbw_ts $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x5
+x4
+bx 3
+bx 2
+bx 1
+bx 0
+bx /
+bx .
+b111 -
+0,
+0+
+0*
+0)
+0(
+0'
+0&
+b111 %
+0$
+0#
+0"
+bx !
+$end
+#2
+05
+04
+1#
+b111 !
+b111 .
+b111 /
+b111 1
+1,
+1+
+#4
+0#
+#6
+b111 2
+1#
+1)
+#8
+0#
+#10
+b110 !
+b110 .
+b110 /
+b110 1
+b110 2
+1#
+0,
+1'
+0+
+#12
+0#
+#14
+b101 !
+b101 .
+b101 /
+b101 1
+b101 2
+1#
+#16
+0#
+#18
+b100 !
+b100 .
+b100 /
+b100 1
+b100 2
+1#
+#20
+0#
+#22
+b11 !
+b11 .
+b11 /
+b11 1
+b11 2
+1#
+#24
+0#
+#26
+b10 !
+b10 .
+b10 /
+b10 1
+b10 2
+1#
+#28
+0#
+#30
+b1 !
+b1 .
+b1 /
+b1 1
+b1 2
+1#
+#32
+0#
+#34
+b0 !
+b0 .
+b0 /
+b0 1
+b0 2
+1#
+#36
+0#
+#38
+b1111 !
+b1111 .
+b1111 /
+b1111 1
+b1111 2
+1#
+#40
+0#
+#42
+b1110 !
+b1110 .
+b1110 /
+b1110 1
+b1110 2
+1#
+#44
+0#
+#46
+b1101 !
+b1101 .
+b1101 /
+b1101 1
+b1101 2
+1#

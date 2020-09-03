@@ -1,0 +1,24 @@
+
+QISP_16 v1 ISA
+
+General Purpose Registers:
+
+r0-r15: 15..0 bits
+
+Special Purpose Registers:
+
+QP: Queue Pointer
+
+Instructions Listing:
+
+0000 xxxx 0000 0000                 stop     /* 0 level -- stop the cpu */
+0000 aaaa 0001 0000                 goto     /* * level -- load pc with a */
+
+0000 aaaa 1000 bbbb                 add      /* * level -- push_front( a + b ) */
+0000 aaaa 1001 bbbb                 sub      /* * level -- push_front( a - b ) */
+
+0010 0001 iiii iiii                 ldq.i    /* * level -- qp := immediate */
+0010 0010 iiii iiii                 ld.u     /* * level -- push_front( unsigned constant ) */
+
+1000 aaaa iiii iiii                 add      /* * level -- push_front( a + u ) */                       
+1001 aaaa iiii iiii                 sub      /* * level -- push_front( a - u ) */

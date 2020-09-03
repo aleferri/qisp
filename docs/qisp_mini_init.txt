@@ -1,0 +1,37 @@
+
+; QISP calling convention
+; %a0-5    := arguments, free for called
+; %r0-7    := to save
+; %ra      := return address
+; %sp      := stack pointer
+; %qp      := arg len
+
+_init:
+    mov       0, %r0
+    movs      %r0, %qp
+    ld.u      _threads_block
+    st.short  32, %r0
+    movq      1
+    ld.u16    h02FF
+    mov       %a1, %r1
+    movq      -1
+    st.short  34, %r1
+    movq      1
+    ld.u16    h03FF
+    mov       %a1, %r2
+    movq      -1
+    st.short  36, %r2
+    
+    
+    
+_alloc_persist:         ; alloc_persist(size -> pointer)
+.entry:
+    ld.u      _alloc_storage   ; qp = 1
+    ld.short  0, %a5            ; alloc_storage.next_free
+    movq      1                 ; qp = 1
+    add       %a5, %a0          ; qp = 2
+    movq      -1                ; qp = 1
+    st.short  0, %a2            ; qp = 0
+    mov       %a5, %a0
+.exit:
+    goto      %ra

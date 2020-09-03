@@ -1,0 +1,115 @@
+$date
+	Sat Oct  5 00:15:55 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_fetch $end
+$var wire 16 ! opc [15:0] $end
+$var wire 1 " i_status $end
+$var reg 1 # a_rst $end
+$var reg 1 $ clk $end
+$var reg 1 % clr_jump $end
+$var reg 1 & hold $end
+$var reg 16 ' i_data [15:0] $end
+$var reg 1 ( i_rdy $end
+$upscope $end
+$scope module tb_fetch $end
+$scope module fe_module $end
+$var wire 1 # a_rst $end
+$var wire 1 $ clk $end
+$var wire 1 ) hold $end
+$var wire 16 * i_data [15:0] $end
+$var wire 1 & i_hold $end
+$var wire 1 % i_hold_clr $end
+$var wire 1 ( i_rdy $end
+$var wire 16 + i_reg [15:0] $end
+$var wire 1 " i_status $end
+$var wire 1 , opcode_hazard $end
+$var wire 1 - status_next_valid $end
+$var wire 1 . status_wait $end
+$var reg 16 / ir [15:0] $end
+$var reg 2 0 status [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 0
+bx /
+0.
+x-
+x,
+bx +
+b0 *
+1)
+0(
+b0 '
+0&
+0%
+0$
+0#
+1"
+bx !
+$end
+#1
+1#
+#2
+1-
+0,
+b111011101110111 !
+b111011101110111 +
+b111011101110111 /
+b11 0
+1$
+b111011101110111 '
+b111011101110111 *
+#3
+0)
+1(
+#4
+0$
+#6
+1$
+#7
+0-
+1)
+0(
+1&
+#8
+0$
+#10
+0"
+1.
+b10 0
+1$
+#11
+0&
+#12
+0$
+#14
+1$
+#16
+0$
+#17
+0)
+1-
+1(
+1%
+#18
+1"
+0.
+b11 0
+1$
+#20
+0$
+#22
+1$
+#24
+0$
+#26
+1$
+#27

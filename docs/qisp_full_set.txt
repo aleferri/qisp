@@ -1,0 +1,75 @@
+
+0000 xxxx 0000 0000                 stop     /* 0 level -- stop the cpu */
+0000 xxxx 0000 0001                 reset    /* 0 level -- reset the cpu */
+0000 xxxx 0000 0010                 jtt      /* 0 level -- jump to task , need explanation later */
+0000 xxxx 0000 0011                 rtt      /* 0 level -- return to task, need explanation later */
+0000 xxxx 0000 0100                 swint    /* * level -- software interrupt, intcode in front_queue */
+
+0000 aaaa 0001 0000                 goto     /* * level -- load pc with a */
+0000 aaaa 0001 0001                 call     /* * level -- load pc with a and push_front( pc ) */
+
+0000 aaaa 0010 ssss                 sr.st    /* * level -- move special register to register */
+0000 ssss 0011 bbbb                 sr.ld    /* 0 level -- move register to special register */
+0000 aaaa 0101 xxxx                 qp.ld    /* * level -- move register to queue */
+
+0000 aaaa 0110 0000                 not      /* * level -- flip bits of a register */
+0000 aaaa 0110 0001                 neg      /* * level -- negate register */
+
+0001 aaaa 0000 bbbb                 st.byte  /* * level -- store_memory_byte( b + offset16, a )
+0001 aaaa 0001 bbbb                 st.short /* * level -- store_memory_short( b + offset16, a )
+0001 aaaa 0010 bbbb                 st.byte  /* * level -- load_memory_byte( a + offset16, b )
+0001 aaaa 0011 bbbb                 st.short /* * level -- load_memory_short( a + offset16, b )
+
+0010 aaaa 0000 bbbb                 add      /* * level -- push_front( a + b ) */
+0010 aaaa 0001 bbbb                 sub      /* * level -- push_front( a - b ) */
+0010 aaaa 0010 bbbb                 dad      /* * level -- push_front( a dad b ) */
+0010 aaaa 0011 bbbb                 cmp      /* * level -- push_front( a cmp b ) */
+0010 aaaa 0100 bbbb                 and      /* * level -- push_front( a & b ) */
+0010 aaaa 0101 bbbb                 ior      /* * level -- push_front( a nor b ) */
+0010 aaaa 0110 bbbb                 xor      /* * level -- push_front( a xor b ) */
+0010 aaaa 0111 bbbb                 move     /* * level -- b := a */
+
+0011 aaaa 0000 xxxx                 add      /* * level -- push_front( a + u16 ) */
+0011 aaaa 0001 xxxx                 sub      /* * level -- push_front( a - u16 ) */
+0011 aaaa 0010 xxxx                 dad      /* * level -- push_front( a dad u16 ) */
+0011 aaaa 0011 xxxx                 cmp      /* * level -- push_front( a cmp u16 ) */
+0011 aaaa 0100 xxxx                 and      /* * level -- push_front( a & u16 ) */
+0011 aaaa 0101 xxxx                 ior      /* * level -- push_front( a nor u16 ) */
+0011 aaaa 0110 xxxx                 xor      /* * level -- push_front( a xor u16 ) */
+0011 xxxx 0111 bbbb                 move     /* * level -- b := i */  
+
+0101 aaaa 0000 bbbb                 ifeq     /* * level -- if a == b { pc := pc + offset16 } */
+0101 aaaa 0001 bbbb                 ifne     /* * level -- if a != b { pc := pc + offset16 } */
+0101 aaaa 0001 bbbb                 ifne     /* * level -- if a >= b { pc := pc + offset16 } */
+0101 aaaa 0001 bbbb                 ifne     /* * level -- if a < b  { pc := pc + offset16 } */
+
+1000 0000 iiii iiii                 movq     /* * level -- move_front( offset ) */
+1000 0001 iiii iiii                 ldq.i    /* * level -- qp := immediate */
+1000 0010 iiii iiii                 ld.u     /* * level -- push_front( unsigned constant ) */
+1000 0011 iiii iiii                 ld.i     /* * level -- push_front( signed constant ) */
+
+ISA Registers:
+
+16 bit x 16 gp registers named R0 through R15
+16 bit x 1 instruction pointer register named PC
+16 bit x 1 next task instruction pointer register named TPC
+4 bit x 1 queue pointer register named QP
+4 bit x 1 status register named STSR
+
+Queue Pointer (QP):
+
+Always point to the last front register, initial value is implementation defined
+
+Program Counter (PC):
+
+Always point to the next instruction, a branch instruction with an offset of zero count as NOP
+
+Target Program Counter (TPC):
+
+Point the first instruction of the next task in queue, becoming the effective pc of that task after a Jump To Task instruction
+
+Status Register (STSR):
+
+Contains the status of the task:
+From msb to lsb [TRRR], 
+with T being the current Task ID, 
