@@ -42,6 +42,6 @@ end
 
 assign o_rbw = rbw_exists & rs & rbw_ts == r_ts & ~ptr_solve;
 // Translate to "issue has been notified" and "has not been cleared" and "this case is that case" and "a passthrough cannot resolve the issue", 
-// then we have a problem and then become everyone problem
+// then we have a problem and then our problem become everyone problem
 
 endmodule
