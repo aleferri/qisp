@@ -94,15 +94,19 @@ pc_file program_counter(
     .o_prev_pc (id_pc)
 );
 
+wire qp_clr = ~pipe_status[0] & ~pipe_status[1];
+wire qp_val = qp_clr ? 4'b0000 : ex_result[3:0];
+wire qp_ws = ex_wsq | qp_clr;
+    
 queue_file queue(
     .clk (clk),    // Clock Signal
     .r_ts (ts_decode),    // Read Task Selector
     .w_ts (ts_execute),    // Write Task Selector
     .hold (qp_hold),    // Hold Value
-    .ws (ex_wsq),    // Write Select
+    .ws (qp_ws),    // Write Select
     .rs (id_q_sel_rb | id_sel_a[0] | id_q_sel_rd),    // Read Select
     .q_dir (id_q_dir),
-    .i_qp (ex_result[3:0]),
+    .i_qp (qp_val),
     .o_qp (qp)
 );
 
